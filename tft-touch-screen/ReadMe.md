@@ -19,8 +19,33 @@
 | 13	           | T DO	       | Touch panel SPI bus output                   | ➡️  | GPIO32 |
 | 14	           | IRQ (PEN)   | 	Touch panel interrupt IRQ signal            | ➡️  | GPIO35 |
 
-### 2. Changes Made in User_Setup
-
+### 2. Changes Made in User_Setup.h file
+- Defining driver [one to be defined the other ones must be commented out] (line 45-64)
+  ```cpp
+  // #define ILI9341_DRIVER       // Generic driver for common displays
+  ...
+  #define ILI9488_DRIVER     // WARNING: Do not connect ILI9488 display SDO to MISO if other devices share the SPI bus (TFT SDO does NOT tristate when CS is high)
+  ...
+  ```
+- Defining the pins that are used to interface with the display here (line 112)
+  - Comment out  ESP8266 NodeMCU pins and uncomment ESP32 pins 
+  ```cpp
+  #define TFT_MISO 19
+  #define TFT_MOSI 23
+  #define TFT_SCLK 18
+  #define TFT_CS   15  // Chip select control pin
+  #define TFT_DC    2  // Data Command control pin
+  #define TFT_RST   4  // Reset pin (could connect to RST pin)
+  //#define TFT_RST  -1  // Set TFT_RST to -1 if display RESET is connected to ESP32 board RST
+  ...
+  #define TOUCH_CS 21     // Chip select pin (T_CS) of touch screen 
+  ...
+  ```
+- Define the ESP32 SPI port to use (line 374)
+  - As we are using Virtual SPI (VSPI) port, we need to uncomment this line
+  ```cpp
+    #define USE_HSPI_PORT 
+  ```
 ### 3. Calibration
 With the Touch_Calibration sketch, the min/max values (`TS_MINX`, `TS_MAXX`, `TS_MINY`, `TS_MAXY`) will be available in the serial monitor for direct use in your touchscreen mapping logic.
 
