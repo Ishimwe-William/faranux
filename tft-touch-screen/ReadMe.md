@@ -19,3 +19,10 @@
 | 13	           | T DO	       | Touch panel SPI bus output                   | ➡️  | GPIO32 |
 | 14	           | IRQ (PEN)   | 	Touch panel interrupt IRQ signal            | ➡️  | GPIO35 |
 
+#### 2. Changes Made in User_Setup
+
+#### 3. Calibration
+With the Touch_Calibration sketch, the min/max values (`TS_MINX`, `TS_MAXX`, `TS_MINY`, `TS_MAXY`) will be available in the serial monitor for direct use in your touchscreen mapping logic.
+
+**Note:** This is tested on `ILI9488_DRIVER`. If you have different type, update the `User_Setup.h` file
+
