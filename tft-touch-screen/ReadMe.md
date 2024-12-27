@@ -53,5 +53,37 @@ After adding TFT_eSPI library to your IDE, you will need to make some modificati
 ### 4. Calibration
 With the Touch_Calibration sketch, the min/max values (`TS_MINX`, `TS_MAXX`, `TS_MINY`, `TS_MAXY`) will be available in the serial monitor for direct use in your touchscreen mapping logic.
 
+In you sketch you will need to replace these values with the one you have got:
+```cpp
+#define TS_MINX 200
+#define TS_MAXX 3700
+#define TS_MINY 240
+#define TS_MAXY 3800
+```
 **Note:** This is tested on `ILI9488_DRIVER`. If you have different type, update the `User_Setup.h` file
 
+### 5. On/Off Button Example
+The On/Off Button Example is designed to toggle an LED connected to pin 12. However, you might encounter a "flipping" issue, where the touch input does not align with the location of the desired effect on the screen. This issue arises because the raw touchscreen coordinates do not correspond directly to the screen's orientation or dimensions. To resolve this, calibration is required to map the raw touch coordinates accurately to the display area, accounting for any flipping or mismatches.
+
+Here are some key areas you may change in your codes
+- Screen dimensions
+  ```cpp
+  ...
+  #define SCREEN_WIDTH 320
+  #define SCREEN_HEIGHT 480
+  ...
+  ```
+- Screen rotation
+  ```cpp
+  touchscreen.setRotation(0);  // Match screen rotation
+  ...
+  tft.setRotation(0);  // Portrait orientation
+  ...
+  ```
+- Mapping raw touch coordinates to screen coordinates
+  ```cpp
+  ...
+  int touchX = map(p.x, TS_MAXX, TS_MINX, 0, SCREEN_WIDTH);
+  int touchY = map(p.y, TS_MINY, TS_MAXY, 0, SCREEN_HEIGHT);
+  ...
+  ```
