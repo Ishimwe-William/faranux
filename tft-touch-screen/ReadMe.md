@@ -19,7 +19,11 @@
 | 13	           | T DO	       | Touch panel SPI bus output                   | ➡️  | GPIO32 |
 | 14	           | IRQ (PEN)   | 	Touch panel interrupt IRQ signal            | ➡️  | GPIO35 |
 
-### 2. Changes Made in User_Setup.h file
+### 2. Library Used
+- [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI)
+- [XPT2046_Touchscreen](https://github.com/PaulStoffregen/XPT2046_Touchscreen)
+### 3. Changes Made in User_Setup.h file of [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI) library
+After adding TFT_eSPI library to your IDE, you will need to make some modifications to User_Setup.h file to make everything work. **In this repository, there is a copy of User_Setup.h with modifications**. The following are some modification made to the file: 
 - Defining driver [one to be defined the other ones must be commented out] (line 45-64)
   ```cpp
   // #define ILI9341_DRIVER       // Generic driver for common displays
@@ -46,7 +50,7 @@
   ```cpp
     #define USE_HSPI_PORT 
   ```
-### 3. Calibration
+### 4. Calibration
 With the Touch_Calibration sketch, the min/max values (`TS_MINX`, `TS_MAXX`, `TS_MINY`, `TS_MAXY`) will be available in the serial monitor for direct use in your touchscreen mapping logic.
 
 **Note:** This is tested on `ILI9488_DRIVER`. If you have different type, update the `User_Setup.h` file
