@@ -87,3 +87,4 @@ Here are some key areas you may change in your codes
   int touchY = map(p.y, TS_MINY, TS_MAXY, 0, SCREEN_HEIGHT);
   ...
   ```
+View it working here: https://youtu.be/YVeuXiqUwvc
