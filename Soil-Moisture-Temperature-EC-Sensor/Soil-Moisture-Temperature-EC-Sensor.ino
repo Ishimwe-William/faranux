@@ -1,6 +1,8 @@
 /***
   Faranux.com
   -----------
+  User Manual: https://files.seeedstudio.com/wiki/Soil_Moisture_Temperature_EC_Sensor/SoilMoisture_Temperature_ECSensorUserManual-S-Temp&VWC&EC-02.pdf
+  
   Soil_Moisture_Temperature_EC_Sensor Connection to MAX485 TTL To RS485 Module
   ----------------------------------------------------------------------------
   DI                  ARDUINO D3
