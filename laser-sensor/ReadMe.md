@@ -1,51 +1,59 @@
-# Laser Sensor Security System
+# Laser Sensor Security System  
 Created by Faranux Team
 
-## Overview
-This project implements a laser-based security system using an Arduino Uno, consisting of a laser transmitter and receiver module. When the laser beam between the transmitter and receiver is interrupted, the system triggers an alarm through a buzzer and visual indication through an LED.
+## 📖 Overview
+This project implements a laser-based security system using an Arduino Uno. It uses a laser transmitter and receiver module to detect beam interruptions. When the beam is broken (e.g., by an intruder), the system triggers an alarm via a buzzer and a visual LED indicator. It also reports status messages to the Serial Monitor.
 
-## Features
-- Real-time laser beam interruption detection
-- Visual feedback through LED indicator
-- Audible alarm through buzzer
-- Serial monitor status reporting
-- Simple and reliable security implementation
+## ✨ Features
+- Real-time detection of laser beam interruptions  
+- Visual feedback through an LED  
+- Audible alert through a buzzer  
+- Serial Monitor status logging  
+- Simple, effective, and low-cost security solution
 
-## Components Required
-- Arduino Uno Rev3
-- Laser Transmitter Module (Tx)
-- Laser Receiver Module (Rx)
-- LED (Green)
-- 180 ohm Resistor
-- 5V Active Buzzer
-- Connecting wires
+## 🧰 Components Required
+| Component                | Quantity |
+|--------------------------|----------|
+| Arduino Uno Rev3         | 1        |
+| Laser Transmitter Module | 1        |
+| Laser Receiver Module    | 1        |
+| LED (any color)          | 1        |
+| 180Ω Resistor            | 1        |
+| 5V Active Buzzer         | 1        |
+| Jumper Wires             | Several  |
+| Breadboard (optional)    | 1        |
 
-## Pin Configuration
+## 🛠️ Pin Configuration
 | Component | Arduino Pin |
-|-----------|------------|
-| Laser Tx  | D2         |
-| Laser Rx  | D3         |
-| LED       | D12        |
-| Buzzer    | D5         |
+|-----------|-------------|
+| Laser Tx  | D2          |
+| Laser Rx  | D3          |
+| LED       | D12         |
+| Buzzer    | D5          |
 
-## Circuit Diagram
+
+## 🔌 Circuit Diagram
 ![Circuit Diagram](circuit-diagram.png)
 
-The circuit should be connected as shown in the schematic diagram above.
+> *Make sure to align the laser beam directly to the receiver sensor. The LED should be connected with a 180Ω resistor in series.*
 
-## How It Works
-1. The laser transmitter continuously emits a laser beam to the receiver
-2. When the beam is uninterrupted:
-   - LED is ON (system armed)
-   - Buzzer is OFF
-   - Serial monitor shows "Secure - Beam connected"
-3. When the beam is interrupted:
-   - LED turns OFF
-   - Buzzer activates
-   - Serial monitor shows "ALERT! Beam interrupted!"
+## ⚙️ How It Works
+1. The laser transmitter continuously emits a beam to the receiver.
+2. If the beam reaches the receiver:
+   - The LED is **ON**
+   - The buzzer is **OFF**
+   - Serial Monitor prints: `Secure - Beam connected`
+3. If the beam is broken (e.g., someone passes through):
+   - The LED turns **OFF**
+   - The buzzer turns **ON**
+   - Serial Monitor prints: `ALERT! Beam interrupted!`
+
 
 ## Installation
 1. Clone this repository:
+```bash
+git clone https://github.com/Ishimwe-William/faranux.git
+```
 2. Connect the components according to the circuit diagram
 3. Upload the provided Arduino code to your Arduino Uno
 4. Open Serial Monitor (baud rate: 9600)
