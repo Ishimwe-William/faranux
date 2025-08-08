@@ -1,3 +1,29 @@
+/*
+ * DFPlayer Mini MP3 Module Example
+ * Using Makuna Library (MH2024K16SS chip support)
+ * 
+ * Tested and verified by Faranux.com engineering team
+ * https://faranux.com
+ * 
+ * Hardware:
+ * - Arduino Uno/Nano
+ * - DFPlayer Mini MP3 (MH2024K16SS chip)
+ * - Speaker (3-4Ω)
+ * - 1kΩ resistor between RX pin
+ * 
+ * Connection:
+ * Arduino    DFPlayer Mini  
+ * ------------------------
+ * 5V        ->   VCC
+ * D11       ->   RX (1kΩ)
+ * D10       ->   TX
+ *           ->
+ *           ->
+ * SPEAKER_R ->   + (Right)
+ * GND       ->   GND
+ * SPEAKER_L ->   + (Left)
+ */
+
 #include "DFMiniMp3.h"
 #include <SoftwareSerial.h>
 

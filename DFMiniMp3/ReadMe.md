@@ -1,71 +1,92 @@
 # DFMini MP3 Player Arduino Examples
-Created by Faranux.com Electronics Team
-https://faranux.com/
 
-This repository contains two implementations for controlling the DFPlayer Mini MP3 module, developed and tested by the Faranux.com team.
+This repository contains two different implementations for the DFPlayer Mini MP3 module using Arduino:
+
+1. Official DFRobot Library Example
+2. Makuna Library Example (with MH2024K16SS chip support)
 
 ## Hardware Requirements
-* Developed by Faranux.com Electronics Team
-* Tested on Arduino UNO/NANO
-* DFPlayer Mini MP3 module (DFR0299)
-* Micro SD card (FAT32 formatted)
-* Speaker (3-4Ω)
-* Connecting wires
-* 1kΩ resistor
 
-## Circuit Diagram
-```
-                           DFPlayer Mini
-                         +-----------+
-         Arduino 5V -----|VCC     16|
-    Arduino Pin 11 ------|RX      15|
-    Arduino Pin 10 ------|TX        |
-                  ------|SPK_1     |------ Speaker (+)
-                  ------|SPK_2     |------ Speaker (-)
-         Arduino GND ----|GND       |
-                         +-----------+
+- Arduino board (Uno, Nano, etc.)
+- DFPlayer Mini MP3 module
+- Micro SD card
+- Speaker (3-4Ω)
+- Connection wires
 
-Note: 1kΩ resistor should be placed between Arduino Pin 11 and DFPlayer RX
-```
+## Wiring Diagram
 
-## Code Examples
+Both examples use the same pin configuration:
+- Arduino pin 10 -> DFPlayer RX
+- Arduino pin 11 -> DFPlayer TX
 
-### 1. Official Library Implementation
-Located in `Official_DFMiniMp3.ino`
-- Basic implementation using DFRobot's official library
-- Developed and tested by Faranux.com team
+## Examples
 
-### 2. Makuna Library Implementation (MH2024K16SS)
-Located in `MH2024K16SS_DFMiniMp3_By_Makuna_Library.ino`
-- Advanced implementation with extended features
-- Optimized for MH2024K16SS chip variant
-- Tested and verified by Faranux.com team
+### 1. Official DFRobot Library Example
 
-## SD Card Setup Instructions
-1. Format SD card to FAT32
-2. Create folder named 'mp3' in root directory
-3. Copy MP3 files with names: 0001.mp3, 0002.mp3, etc.
-4. Maximum supported size: 32GB
+Located in [Official_DFMiniMp3/Official_DFMiniMp3.ino](Official_DFMiniMp3/Official_DFMiniMp3.ino)
 
-## Troubleshooting Tips by Faranux.com
-* Check all connections carefully
-* Verify SD card format (must be FAT32)
-* Ensure MP3 files are properly named
-* Monitor Serial output for error messages
-* Test speaker connections
-* Verify power supply is stable
+Features:
+- Simple implementation using official DFRobot library
+- Basic playback functionality
+- Volume control
+- Uses software serial for communication
 
-## Credits
-* Original development and testing by Faranux.com Electronics Team
-* Based on DFRobot's official documentation
-* Enhanced with Makuna library support
-* Visit https://faranux.com/ for more projects and tutorials
+Dependencies:
+- DFRobotDFPlayerMini library
+- SoftwareSerial library
 
-## License
-This project is open-source and shared by Faranux.com team for educational purposes.
+### 2. Makuna Library Example (MH2024K16SS)
 
-## Support
-For technical support and questions:
-* Visit: https://faranux.com/
-* Follow our tutorials
-* Check our documentation
+Located in [MH2024K16SS_DFMiniMp3_By_Makuna_Library/MH2024K16SS_DFMiniMp3_By_Makuna_Library.ino](MH2024K16SS_DFMiniMp3_By_Makuna_Library/MH2024K16SS_DFMiniMp3_By_Makuna_Library.ino)
+
+Features:
+- Advanced implementation with callback notifications
+- Automatic track switching
+- Error handling
+- Support for different storage sources (SD, USB, Flash)
+- Specific support for MH2024K16SS chip variant
+
+Dependencies:
+- DFMiniMp3 library by Makuna
+- SoftwareSerial library
+
+## SD Card Setup
+
+1. Format your Micro SD card to FAT32
+2. Create an 'mp3' folder in the root directory
+3. Place your MP3 files in the mp3 folder
+4. Name your files as: 0001.mp3, 0002.mp3, etc.
+
+## Key Differences
+
+Official Library:
+- Simpler implementation
+- Basic functionality
+- Good for beginners
+- Limited error handling
+
+Makuna Library:
+- More robust implementation
+- Advanced features
+- Better error handling
+- Supports different chip variants
+- Callback system for events
+
+## Usage
+
+1. Install required libraries through Arduino Library Manager
+2. Select your board and port in Arduino IDE
+3. Upload the desired sketch
+4. Monitor serial output at 115200 baud (Makuna) or 9600 baud (Official)
+
+## Troubleshooting
+
+- Ensure correct wiring connections
+- Verify SD card is properly formatted (FAT32)
+- Check MP3 files are properly named and placed in mp3 folder
+- Monitor serial output for error messages
+
+## Documentation
+
+For more information, refer to:
+- [DFRobot DFPlayer Mini Wiki](https://wiki.dfrobot.com/DFPlayer_Mini_SKU_DFR0299)
