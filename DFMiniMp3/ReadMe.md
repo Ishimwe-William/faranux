@@ -1,5 +1,7 @@
 # DFMini MP3 Player Arduino Examples
 
+> Tested and verified by [Faranux.com](https://faranux.com)  team
+
 This repository contains two different implementations for the DFPlayer Mini MP3 module using Arduino:
 
 1. Official DFRobot Library Example
@@ -18,6 +20,21 @@ This repository contains two different implementations for the DFPlayer Mini MP3
 Both examples use the same pin configuration:
 - Arduino pin 10 -> DFPlayer RX
 - Arduino pin 11 -> DFPlayer TX
+
+
+
+Arduino    DFPlayer Mini
+------------------------
+```
+  5V        ->   VCC
+  D11       ->   RX (1kΩ)
+  D10       ->   TX
+            ->
+            ->
+  SPEAKER_R ->   + (Right)
+  GND       ->   GND
+  SPEAKER_L ->   + (Left)
+```
 
 ## Examples
 
